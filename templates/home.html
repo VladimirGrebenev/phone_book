@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>PhoneBook</title>
+</head>
+<body>
+<h1>Доступные ендпоинты</h1>
+<ul>
+    {% for endpoint in endpoints %}
+        <li><a href="{{ endpoint.url }}">{{ endpoint.description }}</a></li>
+    {% endfor %}
+</ul>
+<h2>Для проверки загрузки файла можно использовать:</h2>
+<ul>1) curl -X POST -u admin:pass http://127.0.0.1:5000/upload - это в
+    автоматическом режиме загрузит файл phone.csv из корня приложения
+</ul>
+<ul>2) или используйте curl -X POST -u username:password -F
+    "file=@/path/to/your/file" http://127.0.0.1:5000/upload
+</ul>
+<h2>Для тестирования поиска:</h2>
+<ul>1) в адресной строке браузера
+    http://127.0.0.1:5000/search?phone=79284960493
+</ul>
+<ul>2) или curl -X GET "http://127.0.0
+    .1:5000/search?phone=79284960493"
+</ul>
+<h2>Для аутентификации:</h2>
+<ul>1) можно использовать login: admin, password: pass</ul>
+<ul>2) или захардкодить своего пользователя в auth.py</ul>
+
+</body>
+</html>
